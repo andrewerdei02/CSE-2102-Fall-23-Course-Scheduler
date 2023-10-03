@@ -1,26 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <WeeklyCalendar/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WeeklyCalendar from './components/WeeklyCalendar.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    WeeklyCalendar
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: Roboto, Arial, sans-serif;
+  margin-top: 20px;
 }
 </style>
