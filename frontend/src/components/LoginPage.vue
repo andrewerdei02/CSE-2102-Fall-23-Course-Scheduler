@@ -15,6 +15,8 @@
                 <h1>Sign In</h1>
                 <input type="user" placeholder="Username">
                 <input type="password" placeholder="Password">
+                <!-- Do we really want to spend time on this? -->
+                <!-- Is it necessary? -->
                 <a href="#">Forget Your Password?</a>
                 <button>Sign In</button>
             </form>
