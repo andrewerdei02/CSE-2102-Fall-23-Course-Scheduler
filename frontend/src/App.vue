@@ -1,14 +1,14 @@
 <template>
-  <WeeklyCalendar/>
+  <LoginPage/>
 </template>
 
 <script>
-import WeeklyCalendar from './components/WeeklyCalendar.vue'
+import LoginPage from './components/LoginPage.vue'
 
 export default {
   name: 'App',
   components: {
-    WeeklyCalendar
+    Loginpage
   }
 }
 </script>
