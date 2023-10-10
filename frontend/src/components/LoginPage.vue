@@ -1,43 +1,45 @@
 <template>
-    <div class="container" id="container">
-        <!-- Sign up and sign in forms respectively -->
-        <div class="form-container sign-up">
-            <form>
-                <h1>Create Account</h1>
-                <input type="text" placeholder="Name">
-                <input type="user" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
-            </form>
-        </div>
-        <div class="form-container sign-in">
-            <form>
-                <h1>Sign In</h1>
-                <input type="user" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <!-- Do we really want to spend time on this? -->
-                <!-- Is it necessary? -->
-                <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
+    <body>
+        <div class="container" id="container">
+            <!-- Sign up and sign in forms respectively -->
+            <div class="form-container sign-up">
+                <form>
+                    <h1>Create Account</h1>
+                    <input type="text" placeholder="Name">
+                    <input type="user" placeholder="Username">
+                    <input type="password" placeholder="Password">
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in">
+                <form>
+                    <h1>Sign In</h1>
+                    <input type="user" placeholder="Username">
+                    <input type="password" placeholder="Password">
+                    <!-- Do we really want to spend time on this? -->
+                    <!-- Is it necessary? -->
+                    <a href="#">Forget Your Password?</a>
+                    <button>Sign In</button>
+                </form>
+            </div>
 
-        <!-- For toggling back and forth -->
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Click to sign in if you already have an account!</p>
-                    <button class="hidden" id="login">Sign In</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Hello, welcome!</h1>
-                    <p>Click to register if you do not have an account!</p>
-                    <button class="hidden" id="register">Sign Up</button>
+            <!-- For toggling back and forth -->
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1>Welcome Back!</h1>
+                        <p>Click to sign in if you already have an account!</p>
+                        <button class="hidden" id="login">Sign In</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>Hello, welcome!</h1>
+                        <p>Click to register if you do not have an account!</p>
+                        <button class="hidden" id="register">Sign Up</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </body>
 </template>
 
 <script>
@@ -109,7 +111,7 @@ body{
 }
 
 .container button{
-    background-color: #2da82d;
+    background-color: #9e2d2d;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -197,7 +199,7 @@ body{
     width: 50%;
     height: 100%;
     overflow: hidden;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.65s ease-in-out;
     border-radius: 150px 0 0 100px;
     z-index: 1000;
 }
@@ -210,7 +212,7 @@ body{
 .toggle{
     background-color: #2da82d;
     height: 100%;
-    background: linear-gradient(to right, hsl(180, 34%, 71%), #2da82d);
+    background: linear-gradient(to right, hsl(340, 83%, 76%), #690d0d);
     color: #fff;
     position: relative;
     left: -100%;
