@@ -4,6 +4,7 @@
 
 <script>
 import WeeklyCalendar from './components/WeeklyCalendar.vue'
+import ClassSearch from './components/ClassSearch.vue'
 
 export default {
   name: 'App',
