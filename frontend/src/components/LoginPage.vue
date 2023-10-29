@@ -3,23 +3,19 @@
         <div class="container" id="container">
             <!-- Sign up and sign in forms respectively -->
             <div class="form-container sign-up">
-                <form>
+                <form @submit.prevent="handleSignup">
                     <h1>Create Account</h1>
-                    <input type="text" placeholder="Name">
-                    <input type="user" placeholder="Username">
-                    <input type="password" placeholder="Password">
-                    <button>Sign Up</button>
+                    <input type="user" v-model="username" placeholder="Username">
+                    <input type="password" v-model="password" placeholder="Password">
+                    <button type="submit">Sign Up</button>
                 </form>
             </div>
             <div class="form-container sign-in">
-                <form>
+                <form @submit.prevent="handleLogin">
                     <h1>Sign In</h1>
-                    <input type="user" placeholder="Username">
-                    <input type="password" placeholder="Password">
-                    <!-- Do we really want to spend time on this? -->
-                    <!-- Is it necessary? -->
-                    <a href="#">Forget Your Password?</a>
-                    <button>Sign In</button>
+                    <input type="text" v-model="username" placeholder="Username">
+                    <input type="password" v-model="password" placeholder="Password">
+                    <button type="submit">Sign In</button>
                 </form>
             </div>
 
@@ -43,6 +39,62 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      username: '',
+      password: ''
+    };
+  },
+  methods: {
+    async handleSignup() {
+        try {
+        const formData = new URLSearchParams();
+        formData.append('username', this.username);
+        formData.append('password', this.password);
+
+        const response = await fetch('http://localhost:5000/signup', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            window.alert('Account created successfully');
+        } else {
+            window.alert('Account with this username already exists.');
+        }
+        } catch (error) {
+        console.error('Error:', error);
+        window.alert('Error: Account creation failed')
+        }
+    },
+    async handleLogin() {
+      try {
+        const formData = new URLSearchParams();
+        formData.append('username', this.username);
+        formData.append('password', this.password);
+
+        const response = await fetch('http://localhost:5000/login', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          window.alert('Successful login');
+        } else if (response.status === 401) {
+          window.alert('Incorrect password');
+        } else if (response.status === 404) {
+          window.alert('Username does not exist');
+        } else {
+          window.alert('Login failed');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        window.alert('Error: Login failed');
+      }
+    }
+  }
+};
 // waits for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
     // get container, and button elements
