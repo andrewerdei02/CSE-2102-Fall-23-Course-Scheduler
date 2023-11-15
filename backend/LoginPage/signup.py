@@ -16,7 +16,7 @@ def lambda_handler(event, context):
         if not username or not password:
             return {
                 'statusCode': 400,
-                'body': json.dumps('Both username and password are required. One was left blank.')
+                'body': 'Both username and password are required. One was left blank.'
             }
         
         # check if the username already exists
