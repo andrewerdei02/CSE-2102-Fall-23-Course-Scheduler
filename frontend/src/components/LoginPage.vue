@@ -6,7 +6,8 @@
                 <form @submit.prevent="handleSignup">
                     <h1>Create Account</h1>
                     <input type="user" v-model="username" placeholder="Username">
-                    <input type="password" v-model="password" placeholder="Password">
+                    <input id="password" :type="showPassword ? 'text' : 'password'" v-model="password" placeholder="Password">
+                    <label><input id="showpassword" type="checkbox" v-model="showPassword" /> Show Password</label>
                     <button type="submit">Sign Up</button>
                 </form>
             </div>
@@ -14,7 +15,8 @@
                 <form @submit.prevent="handleLogin">
                     <h1>Sign In</h1>
                     <input type="text" v-model="username" placeholder="Username">
-                    <input type="password" v-model="password" placeholder="Password">
+                    <input id="password" :type="showPassword ? 'text' : 'password'" v-model="password" placeholder="Password">
+                    <label><input id="showpassword" type="checkbox" v-model="showPassword" /> Show Password</label>
                     <button type="submit">Sign In</button>
                 </form>
             </div>
@@ -44,7 +46,8 @@ export default {
         return {
             username: '',
             password: '',
-            baseUrl: 'https://kw3vt7l4jk.execute-api.us-east-1.amazonaws.com/Prod'
+            baseUrl: 'https://kw3vt7l4jk.execute-api.us-east-1.amazonaws.com/Prod',
+            showPassword: false
         };
     },
     methods: {
@@ -160,6 +163,22 @@ body{
     height: 100vh;
 }
 
+label {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+    font-size: 14px;
+}
+
+#showpassword {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+}
 .container{
     background-color: #fff;
     border-radius: 30px;
