@@ -40,61 +40,83 @@
 
 <script>
 export default {
-  data() {
-    return {
-      username: '',
-      password: ''
-    };
-  },
-  methods: {
-    async handleSignup() {
-        try {
-        const formData = new URLSearchParams();
-        formData.append('username', this.username);
-        formData.append('password', this.password);
-
-        const response = await fetch('http://localhost:5000/signup', {
-            method: 'POST',
-            body: formData
-        });
-
-        if (response.ok) {
-            window.alert('Account created successfully');
-        } else {
-            window.alert('Account with this username already exists.');
-        }
-        } catch (error) {
-        console.error('Error:', error);
-        window.alert('Error: Account creation failed')
-        }
+    data() {
+        return {
+            username: '',
+            password: '',
+            baseUrl: 'https://kw3vt7l4jk.execute-api.us-east-1.amazonaws.com/Prod'
+        };
     },
-    async handleLogin() {
-      try {
-        const formData = new URLSearchParams();
-        formData.append('username', this.username);
-        formData.append('password', this.password);
+    methods: {
+        async handleSignup() {
+            try {
+                // get data from sign up form
+                const requestData = {
+                    httpMethod: 'POST',
+                    body: JSON.stringify({
+                        username: this.username,
+                        password: this.password
+                    }),
+                };
+                
+                // await response from lambda function
+                const response = await fetch(this.baseUrl + '/signup', {
+                    method: 'POST',
+                    body: JSON.stringify(requestData),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                // respond accordingly
+                const responseBody = await response.json();
 
-        const response = await fetch('http://localhost:5000/login', {
-          method: 'POST',
-          body: formData
-        });
+                if (response.ok) {
+                    window.alert(responseBody.body);
+                } else {
+                    window.alert(responseBody);
+                }
 
-        if (response.ok) {
-          window.alert('Successful login');
-        } else if (response.status === 401) {
-          window.alert('Incorrect password');
-        } else if (response.status === 404) {
-          window.alert('Username does not exist');
-        } else {
-          window.alert('Login failed');
+            } catch (error) {
+                console.error('Error:', error);
+                window.alert('Error: Account creation failed')
+            }
+        },
+    
+        async handleLogin() {
+            try {
+                const requestData = {
+                    httpMethod: 'POST',
+                    body: JSON.stringify({
+                        username: this.username,
+                        password: this.password
+                    }),
+                };
+
+                const response = await fetch(this.baseUrl + '/login', {
+                    method: 'POST',
+                    body: JSON.stringify(requestData),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const responseBody = await response.json()
+                
+                if (response.ok) {
+                    window.alert(responseBody.body);
+                } else {
+                    window.alert(responseBody);
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                window.alert('Error: Login failed');
+            }
         }
-      } catch (error) {
-        console.error('Error:', error);
-        window.alert('Error: Login failed');
-      }
     }
-  }
 };
+
 // waits for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
     // get container, and button elements
