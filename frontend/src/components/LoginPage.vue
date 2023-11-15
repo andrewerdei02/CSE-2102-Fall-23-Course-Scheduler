@@ -48,6 +48,7 @@ export default {
         };
     },
     methods: {
+        // function to handle registration functionality
         async handleSignup() {
             try {
                 // get data from sign up form
@@ -59,7 +60,7 @@ export default {
                     }),
                 };
                 
-                // await response from lambda function
+                // await response from api gateway / lambda function
                 const response = await fetch(this.baseUrl + '/signup', {
                     method: 'POST',
                     body: JSON.stringify(requestData),
@@ -82,9 +83,11 @@ export default {
                 window.alert('Error: Account creation failed')
             }
         },
-    
+        
+        // function to handle login functionality
         async handleLogin() {
             try {
+                // get data from login form
                 const requestData = {
                     httpMethod: 'POST',
                     body: JSON.stringify({
@@ -92,7 +95,8 @@ export default {
                         password: this.password
                     }),
                 };
-
+                
+                // await response from api gateway / lambda function
                 const response = await fetch(this.baseUrl + '/login', {
                     method: 'POST',
                     body: JSON.stringify(requestData),
@@ -101,6 +105,7 @@ export default {
                     }
                 });
 
+                // respond accordingly
                 const responseBody = await response.json()
                 
                 if (response.ok) {
