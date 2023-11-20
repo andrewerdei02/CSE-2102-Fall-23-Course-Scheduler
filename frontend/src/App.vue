@@ -1,16 +1,13 @@
 <template>
-  <HomePage/>
+  <Loginpage/>
 </template>
 
 <script>
-import WeeklyCalendar from './components/WeeklyCalendar.vue'
-import ClassSearch from './components/ClassSearch.vue'
-import HomePage from './components/HomePage.vue'
-
+import Loginpage from './components/LoginPage.vue'
 export default {
   name: 'App',
   components: {
-    HomePage
+    Loginpage
   }
 }
 </script>
