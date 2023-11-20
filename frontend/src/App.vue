@@ -4,7 +4,6 @@
 
 <script>
 import Loginpage from './components/LoginPage.vue'
-
 export default {
   name: 'App',
   components: {
