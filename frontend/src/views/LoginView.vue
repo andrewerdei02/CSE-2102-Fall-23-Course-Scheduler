@@ -109,13 +109,13 @@ export default {
                 });
 
                 // respond accordingly
-                const responseBody = await response.json()
-                
-                if (response.ok) {
-                    this.$router.push({ name: 'HomePage' });
+                const responseBody = await response.json();
+                const rep = JSON.parse(JSON.stringify(responseBody));
+                if (rep.statusCode == 200) {
+                    this.$router.push({name: 'HomePage'});
 
                 } else {
-                    window.alert(responseBody);
+                    window.alert(rep.body);
                 }
 
             } catch (error) {
