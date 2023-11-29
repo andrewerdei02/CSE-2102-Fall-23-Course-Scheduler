@@ -1,13 +1,8 @@
 <template>
     <div>
-        <div class="header-container">
-            <div class="home">Course Scheduler</div>
-        </div>
         <div class="homepage-container">
             <div class="one">Add/Drop Classes</div>
-            <div class="two">Schedule</div>
-            <div class="three">placeholder</div>
-            <div class="four">placeholder</div>
+            <div class="two">View Schedule</div>
         </div>
     </div>
 </template>
@@ -69,30 +64,6 @@
         justify-content: center;
         grid-column: 2;
         grid-row: 1;
-        border: 2px solid #000000;
-        border-radius: 5px;
-        background-color: #eeeeee;
-    }
-
-    .three {
-        width: 250px;
-        height: 90px;
-        text-align: center;
-        justify-content: center;
-        grid-column: 1;
-        grid-row: 2;
-        border: 2px solid #000000;
-        border-radius: 5px;
-        background-color: #eeeeee;
-    }
-
-    .four {
-        width: 250px;
-        height: 90px;
-        text-align: center;
-        justify-content: center;
-        grid-column: 2;
-        grid-row: 2;
         border: 2px solid #000000;
         border-radius: 5px;
         background-color: #eeeeee;
