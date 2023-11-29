@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="homepage-container">
-            <div class="one">Add/Drop Classes</div>
+            <router-link to="/class-search" class="one">Add/Drop Classes</router-link>
             <div class="two">View Schedule</div>
         </div>
     </div>
