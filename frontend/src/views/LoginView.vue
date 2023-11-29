@@ -15,8 +15,8 @@
                 <form @submit.prevent="handleLogin">
                     <h1>Sign In</h1>
                     <input type="text" v-model="username" placeholder="Username">
-                    <input id="password" :type="showPassword ? 'text' : 'password'" v-model="password" placeholder="Password">
-                    <label><input id="showpassword" type="checkbox" v-model="showPassword" /> Show Password</label>
+                    <input id="password2" :type="showPassword ? 'text' : 'password'" v-model="password" placeholder="Password">
+                    <label><input id="showpassword2" type="checkbox" v-model="showPassword" /> Show Password</label>
                     <button type="submit">Sign In</button>
                 </form>
             </div>
@@ -180,6 +180,17 @@ label {
     position: relative;
     top: -1px;
 }
+
+#showpassword2 {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+}
+
 .container{
     background-color: #fff;
     border-radius: 30px;
