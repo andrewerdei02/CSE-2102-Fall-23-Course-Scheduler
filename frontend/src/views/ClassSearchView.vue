@@ -10,15 +10,13 @@
       </div>
     </div>
   </template>
-  
-  
-  
-  <style>
-  .header {
-    color: #000;
-    align-self: center;
-    background-color: #7ba8ff;
-    width: 634px;
+
+<script>
+</script>
+
+<style >
+    .course-selector-container {
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;

@@ -185,6 +185,17 @@ label {
     position: relative;
     top: -1px;
 }
+
+#showpassword2 {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+}
+
 .container{
     background-color: #fff;
     border-radius: 30px;

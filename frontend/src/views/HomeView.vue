@@ -13,6 +13,12 @@
                 <router-link to="/ClassSearch">Class Search</router-link>
             </div></div>
           </div>
+          </div>
+          </div>
+    <div>
+        <div class="homepage-container">
+            <router-link to="/class-search" class="one">Add/Drop Classes</router-link>
+            <div class="two">View Schedule</div>
         </div>
         <div class="div-8">
           <div class="div-9">

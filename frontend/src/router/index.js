@@ -36,7 +36,7 @@ const routes = [
   },
   {
     path: '/ClassSearch',
-    name: 'Class Search',
+    name: 'ClassSearch',
     component: () => import( '../views/ClassSearchView.vue')
   }
 ];
