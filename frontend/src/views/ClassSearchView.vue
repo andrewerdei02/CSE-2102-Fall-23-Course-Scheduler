@@ -6,9 +6,10 @@
         </div>
     </div>
   </template>
-  <script>
-  </script>
-  
+
+<script>
+</script>
+
 <style >
     .course-selector-container {
     display: flex;
