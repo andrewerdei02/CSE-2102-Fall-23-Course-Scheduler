@@ -13,11 +13,15 @@
             </div>
             <div class="form-container sign-in">
                 <form @submit.prevent="handleLogin">
-                    <h1>Sign In</h1>
+                    <h1>Student Sign In</h1>
                     <input type="text" v-model="username" placeholder="Username">
                     <input id="password" :type="showPassword ? 'text' : 'password'" v-model="password" placeholder="Password">
                     <label><input id="showpassword" type="checkbox" v-model="showPassword" /> Show Password</label>
-                    <button type="submit">Sign In</button>
+                    <div class="flex">
+                        <button type="submit">Sign In</button>
+                        <div class="tempspace"></div>
+                        <button @click="$router.push('/AdminLogin')">Admin Sign in</button>
+                    </div>
                 </form>
             </div>
 
@@ -112,6 +116,7 @@ export default {
                 const responseBody = await response.json();
                 const rep = JSON.parse(JSON.stringify(responseBody));
                 if (rep.statusCode == 200) {
+                    this.$loggedin = true;
                     this.$router.push({name: 'HomePage'});
 
                 } else {
@@ -213,6 +218,7 @@ label {
     background-color: #9e2d2d;
     color: #fff;
     font-size: 12px;
+    max-width: 150px;
     padding: 10px 45px;
     border: 1px solid transparent;
     border-radius: 8px;
@@ -222,6 +228,7 @@ label {
     margin-top: 10px;
     cursor: pointer;
 }
+
 
 .container button.hidden{
     background-color: transparent;
@@ -260,6 +267,14 @@ label {
     left: 0;
     width: 50%;
     z-index: 2;
+}
+
+.flex {
+    display: flex;
+}
+
+.tempspace {
+    width: 10px;
 }
 
 .container.active .sign-in{
