@@ -5,7 +5,14 @@
             <router-link to="/AdminHome">Course Scheduler</router-link>
         </div>
         <div class="div-4">
-            <table striped hover :items="items"></table>
+            <DataTable :value="classes" tableStyle="min-width: 50rem">
+                <Column field="course_id" header="Course ID"></Column>
+                <Column field="course_name" header="Course Name"></Column>
+                <Column field="total_seats" header="Total Seats"></Column>
+                <Column field="taken_seats" header="Taken Seats"></Column>
+            </DataTable>
+            <a href="/AddCourse">
+            <button>Add Course</button> </a>
                 
         </div>
       </div>
@@ -15,16 +22,14 @@
 <script>
     export default {
         data() {
-        return {
-            items: [
-          { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-          { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-          { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-          { age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ]
-        }
+            return {
+                course_id: '',
+                course_name: '',
+                total_seats: 'https://kw3vt7l4jk.execute-api.us-east-1.amazonaws.com/Prod',
+                taken_seats: false
+            };
+        },
     }
-}
 </script>
   
   

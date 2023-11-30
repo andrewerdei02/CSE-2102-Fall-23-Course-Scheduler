@@ -9,18 +9,19 @@ def lambda_handler(event, context):
     if event['httpMethod'] == 'POST':
         # retrieve data from api gateway
         body = json.loads(event['body'])
-        username = body.get('username')
-        password = body.get('password')
+        course_id = body.get('course_id')
+        course_name = body.get('course_name')
+        total_seats = body.get('total_seats')
 
         # if either username or password is left blank
-        if not username or not password:
+        if not course_id or not course_name or not total_seats:
             return {
                 'statusCode': 400,
                 'body': 'Both username and password are required. One was left blank.'
             }
         
         # check if the username already exists
-        response = table.get_item(Key={'username': username})
+        response = table.get_item(Key={'course_id': course_id})
 
         if 'Item' in response:
             return {
@@ -29,7 +30,7 @@ def lambda_handler(event, context):
             }
 
         # if the username doesn't exist, create the new account
-        table.put_item(Item={'username': username, 'password': password})
+        table.put_item(Item={'course_id': course_id, 'course_name': course_name, 'total_seats': total_seats})
 
         return {
             'statusCode': 201,  # created

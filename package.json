@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "vue-router": "^4.2.5"
+    "cors": "^2.8.5",
+    "primevue": "^3.42.0",
+    "vue-router": "^4.2.5",
+    "vuejs-smart-table": "^0.0.8"
   }
 }
