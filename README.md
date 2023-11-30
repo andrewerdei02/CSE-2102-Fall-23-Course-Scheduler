@@ -10,7 +10,6 @@ This WebApp is a collaborative project developed by Jack Allen, Kieran Beharry, 
 ## Credits
 
 ### Contributors
-(note to self -- add links to their githubs when they make accounts)
 * [Jack Allen](https://github.com/jackallen123/)
 * [Kieran Beharry](https://github.com/kieranbeharry)
 * [Andrew Erdei](https://github.com/andrewerdei02)
