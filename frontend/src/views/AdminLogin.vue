@@ -84,24 +84,6 @@ export default {
     }
 };
 
-// waits for DOM to load
-document.addEventListener('DOMContentLoaded', () => {
-    // get container, and button elements
-    const container = document.getElementById('container');
-    const registerBtn = document.getElementById('register');
-    const loginBtn = document.getElementById('login');
-
-    // click event listeners for buttons
-    registerBtn.addEventListener('click', () => {
-        // add active class to container
-        container.classList.add("active");
-    });
-
-    loginBtn.addEventListener('click', () => {
-        // remove active class from container
-        container.classList.remove("active");
-    });
-});
 </script>
 
 <style>
