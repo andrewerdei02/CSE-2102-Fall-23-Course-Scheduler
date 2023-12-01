@@ -44,7 +44,7 @@ export default {
                 // await response from api gateway / lambda function
                 const response = await fetch(this.baseUrl + '/createcourse', {
                     method: 'POST',
-                    mode: 'cors',
+                    mode: 'no-cors',
                     body: JSON.stringify(requestData),
                     headers: {
                         'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ export default {
 
             } catch (error) {
                 console.error('Error:', error);
-                window.alert('Error: Course creation failed' + error + "   " + this.baseUrl + '/createcourse');
+                window.alert('Error: Course creation failed' + error + "   " + this.response.json);
             }
         }
     }
