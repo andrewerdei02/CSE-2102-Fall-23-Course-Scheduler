@@ -41,26 +41,20 @@ export default {
                     }),
                 };
                 
+                
                 // await response from api gateway / lambda function
                 const response = await fetch(this.baseUrl + '/createcourse', {
                     method: 'POST',
-                    mode: 'cors',
+                    mode: 'no-cors',
                     body: JSON.stringify(requestData),
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 });
+                
 
                 // respond accordingly
-                const responseBody = await response.json();
-                const rep = JSON.parse(JSON.stringify(responseBody));
-                if (rep.statusCode == 200) {
-                    this.$loggedin = true;
-                    this.$router.push({name: 'AdminHome'});
-
-                } else {
-                    window.alert(rep.body);
-                }
+                console.log(response)
 
             } catch (error) {
                 console.error('Error:', error);
@@ -69,20 +63,6 @@ export default {
         }
     }
 };
-
-// waits for DOM to load
-document.addEventListener('DOMContentLoaded', () => {
-    // get container, and button elements
-    const container = document.getElementById('container');
-    const createBtn = document.getElementById('create');
-
-    // click event listeners for buttons
-    createBtn.addEventListener('click', () => {
-        // add active class to container
-        container.classList.add("active");
-    });
-
-});
 </script>
 
 
