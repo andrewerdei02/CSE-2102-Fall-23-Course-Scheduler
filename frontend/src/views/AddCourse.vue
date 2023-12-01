@@ -1,70 +1,65 @@
 <template>
-    <div class="div">
-      <div class="space">
-        <div class="header">
-            <router-link to="/home">Course Scheduler</router-link>
-        </div>
-        <div class="addcourse">
-            <form @submit.prevent="handleAddCourse">
-                    <h1>Add Course</h1>
-                    <div><input type="text" v-model="course_id" placeholder="Course ID"></div>
-                    <div><input id="course_name" v-model="course_name" placeholder="Course Name"></div>
-                    <div><input id="total_seats" v-model="total_seats" placeholder="Total Seats"></div>
-                    <button type="submit">Create Course</button>
-            </form>
-        </div>
+  <div class="div">
+    <div class="space">
+      <div class="header">
+        <router-link to="/home">Course Scheduler</router-link>
+      </div>
+      <div class="addcourse">
+        <form @submit.prevent="handleAddCourse">
+          <h1>Add Course</h1>
+          <div><input type="text" v-model="course_id" placeholder="Course ID"></div>
+          <div><input id="course_name" v-model="course_name" placeholder="Course Name"></div>
+          <div><input id="total_seats" v-model="total_seats" placeholder="Total Seats"></div>
+          <button type="submit">Create Course</button>
+        </form>
       </div>
     </div>
-  </template>
+  </div>
+</template>
 
 <script>
 export default {
-    data() {
-        return {
-            course_id: '',
-            course_name: '',
-            total_seats: '',
-            baseUrl: 'https://e6uyvie1q8.execute-api.us-east-1.amazonaws.com/Prod'
+  data() {
+    return {
+      course_id: '',
+      course_name: '',
+      total_seats: '',
+      baseUrl: 'https://e6uyvie1q8.execute-api.us-east-1.amazonaws.com/Prod'
+    };
+  },
+  methods: {
+    async handleAddCourse() {
+      try {
+        const requestData = {
+          httpMethod: 'POST',
+          body: JSON.stringify({
+            course_id: this.course_id,
+            course_name: this.course_name,
+            total_seats: this.total_seats,
+          }),
         };
-    },
-    methods: {
-        // function to handle login functionality
-        async handleAddCourse() {
-            try {
-                // get data from login form
-                const requestData = {
-                    httpMethod: 'POST',
-                    body: JSON.stringify({
-                        course_id: this.course_id,
-                        course_name: this.course_name,
-                        total_seats: this.total_seats,
-                    }),
-                };
-                
-                
-                // await response from api gateway / lambda function
-                const response = await fetch(this.baseUrl + '/createcourse', {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: JSON.stringify(requestData),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-                
 
-                // respond accordingly
-                console.log(response)
-
-            } catch (error) {
-                console.error('Error:', error);
-                window.alert('Error: Course creation failed' + error + "   " + this.baseUrl + '/createcourse');
-            }
+        const response = await fetch(this.baseUrl + '/createcourse', {
+          method: 'POST',
+          body: JSON.stringify(requestData)
+        });
+        
+        const responseBody = await response.json();
+        const rep = JSON.parse(JSON.stringify(responseBody));
+        if (rep.statusCode == 201) {
+          window.alert(rep.body)
+        } else {
+          window.alert(rep.body)
         }
+      
+      } catch (error) {
+        console.error('Error:', error);
+        window.alert('Error: Course creation failed');
+      }
     }
+  }
 };
 </script>
-
 
 <style >
     .course-selector-container {
