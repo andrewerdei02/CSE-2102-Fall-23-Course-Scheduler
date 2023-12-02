@@ -2,7 +2,7 @@
   <div class="div">
     <div class="space">
       <div class="header">
-        <router-link to="/home">Course Scheduler</router-link>
+        <router-link to="/AdminHome">Course Scheduler</router-link>
       </div>
       <div class="addcourse">
         <form @submit.prevent="handleAddCourse">

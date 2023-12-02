@@ -7,6 +7,7 @@ import AdminHome from '@/views/AdminHome.vue';
 import CourseAdjust from '@/views/CourseAdjust.vue';
 import AddCourse from '@/views/AddCourse.vue';
 import RemoveCourse from '@/views/RemoveCourse.vue';
+import AdminCourses from '@/views/AdminCourses.vue';
 
 
 const routes = [
@@ -46,6 +47,11 @@ const routes = [
     path: '/RemoveCourse',
     name: 'RemoveCourse',
     component: RemoveCourse
+  },
+  {
+    path: '/AdminCourses',
+    name: 'AdminCourses',
+    component: AdminCourses
   },
   {
     path: '/ClassSearch',
