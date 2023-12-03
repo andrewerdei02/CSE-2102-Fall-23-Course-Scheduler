@@ -1,9 +1,9 @@
 <template>
   <div class="div">
     <div class="backtohome">
-        <router-link to="/HomePage">Course Scheduler</router-link>
+        <router-link to="/home">Course Scheduler</router-link>
     </div>
-    <h2>Enter the information for a course from the available courses to add/drop</h2>
+    <h2 id="head1">Enter the information for a course from the available courses to add/drop</h2>
     <div class="headers">
       <div class="header">
         <h1>Add Courses</h1>
@@ -16,8 +16,8 @@
       <div class="header">
         <h1>Drop Courses</h1>
         <form @submit.prevent="handleDropCourse" class="form">
-          <div><input type="text" v-model="user_id" placeholder="Username"></div>
-          <div><input type="text" v-model="course_id" placeholder="Course ID"></div>
+          <div><input type="text" v-model="drop_user_id" placeholder="Username"></div>
+          <div><input type="text" v-model="drop_course_id" placeholder="Course ID"></div>
           <button type="submit">Drop Course</button>
         </form>
       </div>
@@ -25,6 +25,7 @@
 
     <div class="course-list">
       <div class="space2"></div>
+      <h2 id="head2">Scroll through to see all courses available!</h2>
       <div v-if="courses && courses.length > 0" class="grid-container">
         <div v-for="course in courses" :key="course.course_id" class="course">
           <div class="course-info">
@@ -49,6 +50,8 @@ export default {
       courses: [],
       user_id: '',
       course_id: '',
+      drop_course_id: '',
+      drop_user_id: '',
       baseUrl: 'https://lk4nwfjgt6.execute-api.us-east-1.amazonaws.com/Prod',
     };
   },
@@ -99,11 +102,45 @@ export default {
           window.alert('Error: Failed to add course ' );
       }
     },
+    async handleDropCourse() {
+      try {
+        const requestData = {
+          httpMethod: 'DELETE',
+          body: JSON.stringify({
+            drop_course_id: this.drop_course_id,
+            drop_user_id: this.drop_user_id
+          }),
+        };
+        
+        const response = await fetch(this.baseUrl + '/drop_course', {
+          method: 'DELETE',
+          body: JSON.stringify(requestData)
+        });
+
+        const responseBody = await response.json();
+        const rep = JSON.parse(JSON.stringify(responseBody));
+        if (rep.statusCode === 200) {
+          window.alert(rep.body);
+        } else {
+          window.alert(rep.body);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        window.alert('Error: Failed to drop course.');
+      }
+    }
   },
 };
 </script>
 
 <style>
+#head1 {
+  margin-bottom: 20px;
+}
+
+#head2 {
+  margin-bottom: 20px;
+}
 .space2 {
   height: 100px;
 }
