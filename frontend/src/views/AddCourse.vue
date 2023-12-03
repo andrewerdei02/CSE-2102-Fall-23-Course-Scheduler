@@ -1,16 +1,16 @@
 <template>
-  <div class="div">
+  <div class="main-container">
     <div class="space">
       <div class="header">
         <router-link to="/CourseAdjust">Go Back</router-link>
       </div>
       <div class="addcourse">
-        <form @submit.prevent="handleAddCourse">
+        <form @submit.prevent="handleAddCourse" class="add-form">
           <h1>Add Course</h1>
-          <div><input type="text" v-model="course_id" placeholder="Course ID"></div>
-          <div><input id="course_name" v-model="course_name" placeholder="Course Name"></div>
-          <div><input id="total_seats" v-model="total_seats" placeholder="Total Seats"></div>
-          <button type="submit">Create Course</button>
+          <div><input type="text" v-model="course_id" placeholder="Course ID" class="input-field"></div>
+          <div><input id="course_name" v-model="course_name" placeholder="Course Name" class="input-field"></div>
+          <div><input id="total_seats" v-model="total_seats" placeholder="Total Seats" class="input-field"></div>
+          <button id="create" type="submit">Create Course</button>
         </form>
       </div>
     </div>
@@ -61,66 +61,60 @@ export default {
 };
 </script>
 
-<style >
-    .course-selector-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 32px 20px;
-    font: 400 40px Inter, sans-serif;
-  }
-  .search-bar {
-    width: 100%; 
-    max-width: 400px; 
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    }
-  .div {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    padding: 21px 20px 50px;
-  }
-  .space {
-    display: flex;
-    margin-bottom: 422px;
-    width: 859px;
-    max-width: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
+<style>
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  .div-3 {
-    color: #000;
-    max-width: 400px;
-    background-color: #7ba8ff;
-    justify-content: center;
-    align-items: center;
-    padding: 32px 20px;
-    font: 400 48px Inter, sans-serif;
-  }
-  
-  .addcourse {
-    max-width: 100%;
-    border-radius: 10px;
-    align-self: center;
-    margin-top: 115px;
-    width: 522px;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    font: 400 32px Inter, sans-serif;
-  }
-  .search {
-    align-items: center;
-    justify-content: center;
-  }
-  </style>
+.space {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  color: #000;
+  max-width: 400px;
+  background-color: #7ba8ff;
+  padding: 32px 20px;
+  font: 400 48px Inter, sans-serif;
+  margin-bottom: 20px;
+}
+
+.addcourse {
+  max-width: 522px;
+  border-radius: 10px;
+  padding: 20px;
+  font: 400 32px Inter, sans-serif;
+  background-color: #fff;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#create {
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #7ba8ff;
+  color: white;
+  cursor: pointer;
+}
+</style>

@@ -1,25 +1,25 @@
 <template>
-    <div class="div">
-      <div class="header">
-        <router-link to="/AdminHome">Return to Home</router-link>
-      </div>
-      <div class="course-list">
-        <div v-if="courses && courses.length > 0" class="grid-container">
-          <div v-for="course in courses" :key="course.course_id" class="course">
-            <div class="course-info">
-              <p><strong>Course ID:</strong> {{ course.course_id }}</p>
-              <p><strong>Course Name:</strong> {{ course.course_name }}</p>
-              <p><strong>Total Seats:</strong> {{ course.total_seats }}</p>
-              <p><strong>Taken Seats:</strong> {{ course.taken_seats }}</p>
-            </div>
+  <div class="div">
+    <div class="header">
+      <router-link to="/AdminHome">Return to Home</router-link>
+    </div>
+    <div class="course-list">
+      <div v-if="courses && courses.length > 0" class="grid-container">
+        <div v-for="course in courses" :key="course.course_id" class="course">
+          <div class="course-info">
+            <p><strong>Course ID:</strong> {{ course.course_id }}</p>
+            <p><strong>Course Name:</strong> {{ course.course_name }}</p>
+            <p><strong>Total Seats:</strong> {{ course.total_seats }}</p>
+            <p><strong>Taken Seats:</strong> {{ course.taken_seats }}</p>
           </div>
         </div>
-        <div v-else>
-          <p>No courses available.</p>
-        </div>
+      </div>
+      <div v-else>
+        <p>No courses available.</p>
       </div>
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
   export default {

@@ -49,7 +49,7 @@
 }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 10px;
   font-size: 16px;
   border: none;
   border-radius: 5px;

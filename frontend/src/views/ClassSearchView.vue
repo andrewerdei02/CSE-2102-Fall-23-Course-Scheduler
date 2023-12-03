@@ -10,7 +10,7 @@
         <form @submit.prevent="handleAddCourse" class="form">
           <div><input type="text" v-model="user_id" placeholder="Username"></div>
           <div><input type="text" v-model="course_id" placeholder="Course ID"></div>
-          <button type="submit">Add Course</button>
+          <button id="but1" type="submit">Add Course</button>
         </form>
       </div>
       <div class="header">
@@ -18,7 +18,7 @@
         <form @submit.prevent="handleDropCourse" class="form">
           <div><input type="text" v-model="drop_user_id" placeholder="Username"></div>
           <div><input type="text" v-model="drop_course_id" placeholder="Course ID"></div>
-          <button type="submit">Drop Course</button>
+          <button id="but2" type="submit">Drop Course</button>
         </form>
       </div>
     </div>
@@ -135,13 +135,14 @@ export default {
 </script>
 
 <style>
-#head1 {
+#but1, #but2 {
+  margin-top: 10px;
+}
+
+#head1, #head2 {
   margin-bottom: 20px;
 }
 
-#head2 {
-  margin-bottom: 20px;
-}
 .space2 {
   height: 100px;
 }

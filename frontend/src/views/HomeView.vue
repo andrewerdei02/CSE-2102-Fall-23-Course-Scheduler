@@ -1,22 +1,25 @@
 <template>
-    <div class="div">
-      <div class="div-2">
+  <div class="welcome-page">
+    <div class="header">
+      <router-link to="/">Return to Login</router-link>
+    </div>
+    <div class="welcome-container">
+      <div class="welcome-header">
         <h1>Welcome, {{ $store.state.username }}!</h1>
-        <div class="div-4">
-          <div class="div-5">
-            <div class="column"><div class="cal">
-                <router-link to="/ClassSearch">Add/Drop Classes</router-link>
-            </div></div>
-            <div class="column-2"><div class="class">
-                <router-link to="/ViewSchedule">View Your Schedule</router-link>
-            </div></div>
-          </div>
+      </div>
+      <div class="link-container">
+        <div class="class-link">
+          <router-link to="/ClassSearch">Add/Drop Classes</router-link>
+        </div>
+        <div class="schedule-link">
+          <router-link to="/ViewSchedule">View Your Schedule</router-link>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
+  </div>
+</template>
+
+<script>
 export default {
   beforeCreate() {
     const vm = this;
@@ -25,122 +28,50 @@ export default {
 };
 </script>
 
-  <style>
-  .div {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    padding: 21px 20px 50px;
-  }
-  .div-2 {
-    display: flex;
-    margin-bottom: 300px;
-    width: 859px;
-    max-width: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .header {
-    color: #000;
-    align-self: center;
-    background-color: #7ba8ff;
-    width: 634px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 32px 20px;
-    font: 400 40px Inter, sans-serif;
-  }
+<style>
+.welcome-page {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .cal {
-    color: #000;
-    background-color: #d9d9d9;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 250px;
-    padding: 46px 20px;
-    font: 400 35px Inter, sans-serif;
-  }
-  
-  .class {
-    color: #000;
-    background-color: #d9d9d9;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 250px;
-    padding: 46px 20px;
-    font: 400 35px Inter, sans-serif;
-  }
+.header {
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
 
-  .div-4 {
-    align-self: center;
-    margin-top: 211px;
-  }
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .div-5 {
-    gap: 20px;
-    display: flex;
-  }
+.welcome-header h1 {
+  color: #000;
+  font-size: 40px;
+}
 
-  .column {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: 50%;
-    margin-left: 0px;
-  }
-  
-  .column-2 {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: 50%;
-    margin-left: 20px;
-  }
+.link-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
 
-  .div-8 {
-    align-self: stretch;
-    margin-top: 53px;
-  }
-  
-  .div-9 {
-    gap: 20px;
-    display: flex;
-  }
-  
-  .div-10 {
-    background-color: #d9d9d9;
-    display: flex;
-    width: 100%;
-    height: 128px;
-    flex-direction: column;
-    flex: 1;
-  }
-  
-  .column-3 {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: 50%;
-    margin-left: 20px;
-  }
-  
-  .div-11 {
-    background-color: #d9d9d9;
-    display: flex;
-    width: 100%;
-    height: 128px;
-    flex-direction: column;
-    flex: 1;
-  }
-  
-  </style>
+.class-link,
+.schedule-link {
+  margin: 0 10px;
+}
+
+.class-link a,
+.schedule-link a {
+  display: block;
+  color: #000;
+  background-color: #6d92dd;
+  width: 250px;
+  padding: 46px 20px;
+  text-align: center;
+  font: 400 35px Inter, sans-serif;
+}
+</style>
