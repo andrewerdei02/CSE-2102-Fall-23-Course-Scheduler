@@ -1,4 +1,4 @@
-# lambda function for login
+# lambda function for admin login
 import boto3
 import json
 
