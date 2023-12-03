@@ -1,7 +1,7 @@
 <template>
   <div class="div">
     <div class="backtohome">
-        <router-link to="/home">Course Scheduler</router-link>
+        <router-link to="/home">Back to Home</router-link>
     </div>
     <h2 id="head1">Enter the information for a course from the available courses to add/drop</h2>
     <div class="headers">
@@ -92,6 +92,7 @@ export default {
 
         const responseBody = await response.json();
         const rep = JSON.parse(JSON.stringify(responseBody));
+
         if (rep.statusCode == 201) {
           window.alert(rep.body)
         } else {

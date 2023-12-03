@@ -8,6 +8,7 @@ import CourseAdjust from '@/views/CourseAdjust.vue';
 import AddCourse from '@/views/AddCourse.vue';
 import RemoveCourse from '@/views/RemoveCourse.vue';
 import AdminCourses from '@/views/AdminCourses.vue';
+import ViewSchedule from '@/views/ViewSchedule.vue';
 
 
 const routes = [
@@ -15,6 +16,12 @@ const routes = [
     path: '/',
     name: 'LoginPage',
     component: LoginPage
+  },
+
+  {
+    path: '/ViewSchedule',
+    name: 'ViewSchedule',
+    component: ViewSchedule
   },
 
   {
@@ -28,11 +35,13 @@ const routes = [
     name: 'HomePage',
     component: HomePage,
   },
+
   {
     path: '/AdminHome',
     name: 'AdminHome',
     component: AdminHome
   },
+
   {
     path: '/CourseAdjust',
     name: 'CourseAdjust',
@@ -48,11 +57,13 @@ const routes = [
     name: 'RemoveCourse',
     component: RemoveCourse
   },
+
   {
     path: '/AdminCourses',
     name: 'AdminCourses',
     component: AdminCourses
   },
+
   {
     path: '/ClassSearch',
     name: 'ClassSearch',

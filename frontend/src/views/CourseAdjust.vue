@@ -1,7 +1,7 @@
 <template>
   <div class="div">
     <div class="header">
-      <router-link to="/AdminHome">Course Scheduler</router-link>
+      <router-link to="/AdminHome">Return to Home</router-link>
     </div>
     <div class="add-remove-buttons">
       <div class="add-course">

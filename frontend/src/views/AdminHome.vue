@@ -2,7 +2,7 @@
     <div class="div">
       <div class="div-2">
         <div class="header">
-            <router-link to="/AdminHome">Course Scheduler</router-link>
+            <router-link to="/">Return to Login</router-link>
         </div>
         <div class="div-4">
           <div class="div-5">
@@ -49,7 +49,7 @@
   .header {
     color: #000;
     align-self: center;
-    background-color: #7ba8ff;
+    background-color: #6d92dd;
     width: 634px;
     justify-content: center;
     align-items: center;

@@ -2,7 +2,7 @@
     <div class="div">
       <div class="space">
         <div class="header">
-          <router-link to="/AdminHome">Course Scheduler</router-link>
+          <router-link to="/CourseAdjust">Go Back</router-link>
         </div>
         <div class="removecourse">
           <h1>Remove Course</h1>
@@ -11,8 +11,7 @@
             <div><input type="text" v-model="course_id" placeholder="Course ID"></div>
             <div><input id="course_name" v-model="course_name" placeholder="Course Name"></div>
               <button type="submit">Remove Course</button>
-            </form>
-              <a href="/AdminCourses"><button>View Courses</button></a>
+          </form>
             </div>
             </div>
         </div>

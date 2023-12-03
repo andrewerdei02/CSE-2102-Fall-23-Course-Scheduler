@@ -1,21 +1,18 @@
 <template>
     <div class="div">
       <div class="div-2">
-        <div class="header">
-            <router-link to="/home">Course Scheduler</router-link>
-        </div>
+        <h1>Welcome, {{ $store.state.username }}!</h1>
         <div class="div-4">
           <div class="div-5">
             <div class="column"><div class="cal">
-                <router-link to="/home">Calendar</router-link>
-            </div></div>
-            <div class="column-2"><div class="class">
                 <router-link to="/ClassSearch">Add/Drop Classes</router-link>
             </div></div>
+            <div class="column-2"><div class="class">
+                <router-link to="/ViewSchedule">View Your Schedule</router-link>
+            </div></div>
           </div>
-          </div>
-          <h1>Welcome, {{ $store.state.username }}!</h1>
-          </div>
+        </div>
+      </div>
     </div>
   </template>
   
