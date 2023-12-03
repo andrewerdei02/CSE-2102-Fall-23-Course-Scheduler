@@ -10,7 +10,7 @@
                 <router-link to="/CourseAdjust">Adjust Courses</router-link>
             </div></div>
             <div class="column-2"><div class="class">
-                <router-link to="/AdminCourses">Placeholder</router-link>
+                <router-link to="/AdminCourses">View All Courses</router-link>
             </div></div>
           </div>
         </div>
