@@ -14,6 +14,9 @@
             <div class="course-info">
               <p><strong>Course ID:</strong> {{ course.course_id }}</p>
               <p><strong>Course Name:</strong> {{ course.course_name }}</p>
+              <p v-if="course.professor_name"><strong>Professor:</strong> {{ course.professor_name }}</p> 
+              <p v-if="course.days_of_week"><strong>Days of Week:</strong> {{ course.days_of_week }}</p> 
+              <p v-if="course.class_time"><strong>Class Time:</strong> {{ course.class_time }}</p>
               <p><strong>Total Seats:</strong> {{ course.total_seats }}</p>
               <p><strong>Taken Seats:</strong> {{ course.taken_seats }}</p>
             </div>
@@ -42,7 +45,6 @@ export default {
   methods: {
     async fetchUserCourses() {
       try {
-        // check if form is left blank
         if (this.userId.trim() === '') {
           window.alert("Please don't leave form blank");
           return;

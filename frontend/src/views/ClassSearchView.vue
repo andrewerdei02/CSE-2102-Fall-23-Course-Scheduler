@@ -22,18 +22,20 @@
         </form>
       </div>
     </div>
-
     <div class="course-list">
       <div class="space2"></div>
       <h2 id="head2">Scroll through to see all courses available!</h2>
       <div v-if="courses && courses.length > 0" class="grid-container">
         <div v-for="course in courses" :key="course.course_id" class="course">
           <div class="course-info">
-            <p><strong>Course ID:</strong> {{ course.course_id }}</p>
-            <p><strong>Course Name:</strong> {{ course.course_name }}</p>
-            <p><strong>Total Seats:</strong> {{ course.total_seats }}</p>
-            <p><strong>Taken Seats:</strong> {{ course.taken_seats }}</p>
-          </div>
+              <p><strong>Course ID:</strong> {{ course.course_id }}</p>
+              <p><strong>Course Name:</strong> {{ course.course_name }}</p>
+              <p v-if="course.professor_name"><strong>Professor:</strong> {{ course.professor_name }}</p> 
+              <p v-if="course.days_of_week"><strong>Days of Week:</strong> {{ course.days_of_week }}</p> 
+              <p v-if="course.class_time"><strong>Class Time:</strong> {{ course.class_time }}</p>
+              <p><strong>Total Seats:</strong> {{ course.total_seats }}</p>
+              <p><strong>Taken Seats:</strong> {{ course.taken_seats }}</p>
+            </div>
         </div>
       </div>
       <div v-else>

@@ -8,8 +8,11 @@
         <form @submit.prevent="handleAddCourse" class="add-form">
           <h1>Add Course</h1>
           <div><input type="text" v-model="course_id" placeholder="Course ID" class="input-field"></div>
-          <div><input id="course_name" v-model="course_name" placeholder="Course Name" class="input-field"></div>
-          <div><input id="total_seats" v-model="total_seats" placeholder="Total Seats" class="input-field"></div>
+          <div><input v-model="course_name" placeholder="Course Name" class="input-field"></div>
+          <div><input v-model="professor_name" placeholder="Professor Name" class="input-field"></div> 
+          <div><input v-model="days_of_week" placeholder="Days of Week" class="input-field"></div> 
+          <div><input v-model="class_time" placeholder="Class Time" class="input-field"></div> 
+          <div><input v-model="total_seats" placeholder="Total Seats" class="input-field"></div>
           <button id="create" type="submit">Create Course</button>
         </form>
       </div>
@@ -24,6 +27,9 @@ export default {
       course_id: '',
       course_name: '',
       total_seats: '',
+      professor_name: '', 
+      days_of_week: '',   
+      class_time: '',     
       baseUrl: 'https://e6uyvie1q8.execute-api.us-east-1.amazonaws.com/Prod'
     };
   },
@@ -36,6 +42,9 @@ export default {
             course_id: this.course_id,
             course_name: this.course_name,
             total_seats: this.total_seats,
+            professor_name: this.professor_name, 
+            days_of_week: this.days_of_week,     
+            class_time: this.class_time          
           }),
         };
 
