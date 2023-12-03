@@ -54,6 +54,7 @@ export default {
             showPassword: false
         };
     },
+    
     methods: {
         // function to handle registration functionality
         async handleSignup() {
@@ -116,8 +117,8 @@ export default {
                 const responseBody = await response.json();
                 const rep = JSON.parse(JSON.stringify(responseBody));
                 if (rep.statusCode == 200) {
-                    this.$loggedin = true;
-                    this.$router.push({name: 'HomePage'});
+                    this.$store.commit('setUsername', this.username);
+                    this.$router.push({path: '/home'});
 
                 } else {
                     window.alert(rep.body);

@@ -10,28 +10,24 @@
                 <router-link to="/home">Calendar</router-link>
             </div></div>
             <div class="column-2"><div class="class">
-                <router-link to="/ClassSearch">Class Search</router-link>
+                <router-link to="/ClassSearch">Add/Drop Classes</router-link>
             </div></div>
           </div>
           </div>
+          <h1>Welcome, {{ $store.state.username }}!</h1>
           </div>
-    <div>
-        <div class="homepage-container">
-            <router-link to="/class-search" class="one">Add/Drop Classes</router-link>
-            <div class="two">View Schedule</div>
-        </div>
-        <div class="div-8">
-          <div class="div-9">
-            <div class="column"><div class="div-10"></div></div>
-            <div class="column-3"><div class="div-11"></div></div>
-          </div>
-        </div>
-      </div>
     </div>
   </template>
   
-  
-  
+  <script>
+export default {
+  beforeCreate() {
+    const vm = this;
+    console.log(vm.$store.state.username);
+  },
+};
+</script>
+
   <style>
   .div {
     background-color: #fff;
