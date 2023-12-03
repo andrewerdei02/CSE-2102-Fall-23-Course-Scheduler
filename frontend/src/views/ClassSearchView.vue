@@ -1,11 +1,30 @@
 <template>
   <div class="div">
-    <div class="header">
-      <router-link to="/home">Course Scheduler</router-link>
+    <div class="backtohome">
+        <router-link to="/HomePage">Course Scheduler</router-link>
     </div>
     <h2>Enter the information for a course from the available courses to add/drop</h2>
-    <div class="space2"></div>
-    <div class="columns">
+    <div class="headers">
+      <div class="header">
+        <h1>Add Courses</h1>
+        <form @submit.prevent="handleAddCourse" class="form">
+          <div><input type="text" v-model="user_id" placeholder="Username"></div>
+          <div><input type="text" v-model="course_id" placeholder="Course ID"></div>
+          <button type="submit">Add Course</button>
+        </form>
+      </div>
+      <div class="header">
+        <h1>Drop Courses</h1>
+        <form @submit.prevent="handleDropCourse" class="form">
+          <div><input type="text" v-model="user_id" placeholder="Username"></div>
+          <div><input type="text" v-model="course_id" placeholder="Course ID"></div>
+          <button type="submit">Drop Course</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="course-list">
+      <div class="space2"></div>
       <div v-if="courses && courses.length > 0" class="grid-container">
         <div v-for="course in courses" :key="course.course_id" class="course">
           <div class="course-info">
@@ -19,29 +38,18 @@
       <div v-else>
         <p>No courses available.</p>
       </div>
-      <div class="columns">
-      <form @submit.prevent="handleAddCourse">
-        <div><input type="text" v-model="course_id" placeholder="Course ID"></div>
-        <button type="submit">Add Course</button>
-      </form>
-    </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  beforeCreate() {
-    const vm = this;
-    console.log(vm.$store.state.username);
-  },
-
   data() {
     return {
       courses: [],
       user_id: '',
       course_id: '',
-      baseUrl: 'https://e6uyvie1q8.execute-api.us-east-1.amazonaws.com/Prod',
+      baseUrl: 'https://lk4nwfjgt6.execute-api.us-east-1.amazonaws.com/Prod',
     };
   },
 
@@ -65,70 +73,32 @@ export default {
       }
     },
     async handleAddCourse() {
-        try {
-          const user_id = this.$store.state.username
-          const requestData = {
-            httpMethod: 'POST',
-            body: JSON.stringify({
-              user_id: user_id,
-              course_id: this.course_id,
-            }),
-          };
-  
-          const response = await fetch(this.baseUrl + '/add_course', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestData)
-          });
-          
-          const responseBody = await response.json();
-          const rep = JSON.parse(JSON.stringify(responseBody));
-          if (rep.statusCode == 201) {
-            window.alert(rep.body)
-          } else {
-            window.alert(rep.body)
-          }
-        
-        } catch (error) {
+      try {
+        const requestData = {
+          httpMethod: 'POST',
+          body: JSON.stringify({
+            course_id: this.course_id,
+            user_id: this.user_id
+          }),
+        };
+
+        const response = await fetch(this.baseUrl + '/add_course', {
+          method: 'POST',
+          body: JSON.stringify(requestData)
+        });
+
+        const responseBody = await response.json();
+        const rep = JSON.parse(JSON.stringify(responseBody));
+        if (rep.statusCode == 201) {
+          window.alert(rep.body)
+        } else {
+          window.alert(rep.body)
+        }
+      } catch (error) {
           console.error('Error:', error);
           window.alert('Error: Failed to add course ' );
-        }
-      },
-      async handleDropCourse() {
-        try {
-          const requestData = {
-            httpMethod: 'DELETE',
-            body: JSON.stringify({
-              course_id: this.course_id,
-              course_name: this.course_name,
-            }),
-          };
-  
-          const response = await fetch(this.baseUrl + '/deletecourse', {
-            method: 'DELETE',
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestData)
-          });
-          
-          const responseBody = await response.json();
-          const rep = JSON.parse(JSON.stringify(responseBody));
-          if (rep.statusCode == 201) {
-            window.alert(rep.body)
-          } else {
-            window.alert(rep.body)
-          }
-        
-        } catch (error) {
-          console.error('Error:', error);
-          window.alert('Error: Course removal failed ' );
-        }
       }
+    },
   },
 };
 </script>
@@ -141,6 +111,7 @@ export default {
   width: 150px;
   height: 30px;
 }
+
 .columns {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
@@ -156,17 +127,6 @@ export default {
   width: 100vw;
   height: 100vh;
   padding: 21px 20px 50px;
-}
-
-.header {
-  color: #000;
-  align-self: center;
-  background-color: #7ba8ff;
-  width: 634px;
-  align-items: center;
-  text-align: center;
-  padding: 32px 20px;
-  font: 400 40px Inter, sans-serif;
 }
 
 .course-list {
@@ -188,4 +148,37 @@ export default {
   background-color: #fff;
 }
 
+.headers {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.header {
+  color:#fff;
+  background-color: #00246b;
+  width: 45%; 
+  text-align: center;
+  padding: 20px;
+  font: 400 30px Inter, sans-serif;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backtohome {
+    color: #000;
+    align-self: center;
+    background-color: #7ba8ff;
+    width: 634px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 32px 20px;
+    font: 400 40px Inter, sans-serif;
+    margin-bottom: 40px;
+  }
 </style>
