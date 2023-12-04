@@ -1,4 +1,3 @@
-# function for students to drop a course from schedule
 import json
 import boto3
 
@@ -45,6 +44,15 @@ def lambda_handler(event, context):
                 if 'Item' in user_courses:
                     courses_list = user_courses['Item'].get('courses', [])
                     if drop_course_id in courses_list:
+                        # Update the taken_seats for the course by subtracting 1
+                        update_expression = 'SET taken_seats = if_not_exists(taken_seats, :zero) - :val'
+                        expression_attribute_values = {':val': 1, ':zero': 0}
+                        courses_table.update_item(
+                            Key={'course_id': drop_course_id},
+                            UpdateExpression=update_expression,
+                            ExpressionAttributeValues=expression_attribute_values
+                        )
+                        
                         courses_list.remove(drop_course_id)
                         user_courses_table.update_item(
                             Key={'user_id': drop_user_id},
