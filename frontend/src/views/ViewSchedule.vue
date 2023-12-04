@@ -1,7 +1,7 @@
 <template>
   <div class="container1">
-    <div class="header1">
-      <router-link to="/home" class="back-link">Back to Home</router-link>
+    <div class="home-button-container">
+      <button @click="$router.push('/home')">Back to Home</button>
     </div>
     <div class="content">
       <div class="user-input">
@@ -85,23 +85,30 @@ export default {
 </script>
 
 <style>
+.home-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.home-button-container button {
+    background-color: #7ba8ff;
+    color: #000;
+    font-family: Inter, sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    padding: 32px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: background-color 0.3s ease-in-out;
+    width: 600px;
+    height: 100px;
+}
+
 .container1 {
   text-align: center;
-}
-
-.header1 {
-  max-width: 500px;
-  color: #000;
-  background-color: #6d92dd;
-  padding: 32px 20px;
-  font: 400 40px Inter, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.back-link {
-  text-decoration: none;
 }
 
 .content {
