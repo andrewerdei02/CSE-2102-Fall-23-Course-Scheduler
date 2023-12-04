@@ -1,11 +1,12 @@
 <template>
+  <div class="border"></div>
   <div class="div">
     <div class="backtohome">
         <router-link to="/home">Back to Home</router-link>
     </div>
     <h2 id="head1">Enter the information for a course from the available courses to add/drop</h2>
     <div class="headers">
-      <div class="header">
+      <div class="items">
         <h1>Add Courses</h1>
         <form @submit.prevent="handleAddCourse" class="form">
           <div><input type="text" v-model="user_id" placeholder="Username"></div>
@@ -13,7 +14,7 @@
           <button id="but1" type="submit">Add Course</button>
         </form>
       </div>
-      <div class="header">
+      <div class="items">
         <h1>Drop Courses</h1>
         <form @submit.prevent="handleDropCourse" class="form">
           <div><input type="text" v-model="drop_user_id" placeholder="Username"></div>
@@ -145,6 +146,10 @@ export default {
   margin-bottom: 20px;
 }
 
+.border {
+  margin-top: 20px;
+  height: 140px;
+}
 .space2 {
   height: 100px;
 }
@@ -160,7 +165,6 @@ export default {
   }
   
 .div {
-  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,9 +199,9 @@ export default {
   margin-bottom: 20px;
 }
 
-.header {
+.items {
   color:#fff;
-  background-color: #00246b;
+  background-color: #15326b;
   width: 45%; 
   text-align: center;
   padding: 20px;

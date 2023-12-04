@@ -1,8 +1,9 @@
 <template>
+  <div class="sp"></div>
     <div class="div">
       <div class="div-2">
         <div class="header">
-            <router-link to="/">Return to Login</router-link>
+            <router-link to="/">Logout</router-link>
         </div>
         <div class="div-4">
           <div class="div-5">
@@ -27,8 +28,11 @@
   
   
   <style>
+  .sp {
+    margin-top: 20px;
+    height: 50px;
+  }
   .div {
-    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,7 +64,7 @@
 
   .cal {
     color: #000;
-    background-color: #d9d9d9;
+    background-color: #6d92dd;
     flex-grow: 1;
     justify-content: center;
     align-items: center;
@@ -72,7 +76,7 @@
   
   .class {
     color: #000;
-    background-color: #d9d9d9;
+    background-color: #6d92dd;
     flex-grow: 1;
     justify-content: center;
     align-items: center;

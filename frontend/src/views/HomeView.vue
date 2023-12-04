@@ -1,7 +1,7 @@
 <template>
   <div class="welcome-page">
     <div class="header">
-      <router-link to="/">Return to Login</router-link>
+      <router-link to="/">Logout</router-link>
     </div>
     <div class="welcome-container">
       <div class="welcome-header">

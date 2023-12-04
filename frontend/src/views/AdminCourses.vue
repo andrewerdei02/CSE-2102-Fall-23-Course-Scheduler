@@ -56,7 +56,6 @@ export default {
   
 <style>
 .div {
-  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
