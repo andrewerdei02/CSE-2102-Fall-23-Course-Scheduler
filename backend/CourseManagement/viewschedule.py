@@ -45,7 +45,8 @@ def lambda_handler(event, context):
                     for course_id in courses_list:
                         course_response = courses_table.get_item(Key={'course_id': course_id})
                         if 'Item' in course_response:
-                            courses_details.append(course_response['Item'])
+                            course_details = {k: v for k, v in course_response['Item'].items() if k not in ['total_seats', 'taken_seats']}
+                            courses_details.append(course_details)
                     
                     return {
                         'statusCode': 200,

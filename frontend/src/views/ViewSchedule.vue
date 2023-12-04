@@ -17,8 +17,6 @@
               <p v-if="course.professor_name"><strong>Professor:</strong> {{ course.professor_name }}</p> 
               <p v-if="course.days_of_week"><strong>Days of Week:</strong> {{ course.days_of_week }}</p> 
               <p v-if="course.class_time"><strong>Class Time:</strong> {{ course.class_time }}</p>
-              <p><strong>Total Seats:</strong> {{ course.total_seats }}</p>
-              <p><strong>Taken Seats:</strong> {{ course.taken_seats }}</p>
             </div>
           </div>
         </div>
@@ -92,6 +90,7 @@ export default {
 }
 
 .header1 {
+  max-width: 500px;
   color: #000;
   background-color: #6d92dd;
   padding: 32px 20px;
